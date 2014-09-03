@@ -1,0 +1,150 @@
+body {
+  margin:0;
+  padding: 0;
+}
+
+div#content {
+  font: 12px Arial;
+  background: #fff;
+}
+
+div#insert {
+  display: none;
+}
+
+div.1st {
+  /*margin: 4px 0px;*/
+}
+
+div.Nth {
+  /*margin: 4px 0px 4px 0px;*/
+}
+
+/* Two ways to do icons with these rules:
+   <img class='icon' src='%userIconPath%'>
+   <div class='icon'><div style='height:1px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="%userIconPath%")'></div></div>
+*/
+div.chat {
+	background:#FFF;
+	padding:7px 5px;
+}
+
+div.chat .icon {
+
+}
+
+div.chat div.msg {
+  /*margin: 0px 0px 0px 0px;*/
+	font:normal 10pt/1.2em helvetica,arial,ËÎÌו;
+	margin-bottom: 0.5em;
+}
+
+div.chat .msg li {
+	list-style: square;
+	vertical-align: -1px;
+	list-style-position: inside;
+}
+
+div.chat .msg .detail {
+	color: #111;
+}
+
+div.chat div.Nth {
+  /*margin: 5px 0px 0px 0px;*/
+}
+
+div.chat .salutation {
+  margin-bottom: 0.5em;
+  text-align: left;
+  font-weight: bold;
+  display: none;
+}
+
+
+/* out message style */
+
+div.out {
+  text-align: left;
+  /*border-left: 5px solid #92B3E8;
+  border-right: 5px solid #eee;*/
+}
+
+div.out .msg {
+	margin-left:5px;
+	margin-right: 40px;
+}
+
+DIV.out .icon {
+	float: right;
+	margin: 0 0 5px 5px;
+}
+
+DIV.out .salutation{
+	color: #06c;
+}
+
+div.out .msg li {
+	color: #05c;
+}
+
+div.out .msg li span.detail {
+	
+}
+
+/* in message style */
+
+DIV.in {
+  text-align: left;
+  /*border-right:5px solid #96ce45;
+  border-left: 5px solid #eee;*/
+}
+
+div.in .msg {
+	margin-left:40px;
+	margin-right: 5px;
+}
+
+div.in .salutation {
+	color: #390;
+}
+
+div.in .msg li {
+	color: #390;
+}
+
+div.in .msg li span.detail {
+	line-height: 1.2em;
+}
+
+DIV.in .icon {
+	float: left;
+	margin: 0 5px 5px 0;
+}
+
+DIV.clear {
+  clear: both;
+  height: 1px;
+  overflow: hidden;
+}
+
+div.break {
+  height: 1px;
+  margin: 1px 0px 1px 0px;
+  overflow: hidden;
+  border-top: 1px dotted #fff;
+  border-bottom: 1px dotted #e5e5e5;
+  background: #fff;
+}
+
+div.status {
+	line-height:1.2em;
+	padding:8px 5px;
+	background: #fff;
+}
+
+div.status li {
+	list-style: square;
+	color: #ff7900;
+	vertical-align: -2px;
+	margin-left: 5px;
+}
