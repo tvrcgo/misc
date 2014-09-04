@@ -1,0 +1,197 @@
+<html>
+<head>
+  <title>FM 46.26</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <base target="_self" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <link type="text/css" rel="stylesheet" href=""/>
+  <style>
+* { -webkit-box-sizing:border-box;-webkit-user-select:none; }
+html,body {padding:0;margin:0;}
+#banner { height:61.8%;background:transparent url("bg.jpg") center center;overflow:hidden;position:relative; }
+	#logo {position:absolute;top:0;left:20px;background:#D34836;color:#fff;font:bold 1em helvetica;padding:0.3em 0.5em;margin:0;}
+	#cpanel {position:absolute;bottom:10px;left:0;width:100%;}
+		#playinfo {position:absolute;bottom:10px;left:20px;color:#fff;font:normal 1em helvetica;line-height:40px;text-shadow:0 1px 1px #bbb;}
+		#button {position:absolute;bottom:10px;right:10px;padding:10px;background:#000;opacity:0.5;color:#fff;-webkit-border-radius:10px;border-radius:5px;font:bold 0.8em helvetica;}
+		#button:active { -webkit-box-shadow:0 0 2px #eee;}
+	#progress {position:absolute;bottom:0;left:0;width:100%;background:#ddd;opacity:0.5;}
+		#played {display:block;height:10px;background:#000;width:0%;opacity:0.7;}
+		#buffered {display:block;height:2px;background:#FF0000;width:0%;}
+#main { min-height:38.2%;background:#fff;border-top:1px solid #eee;-webkit-box-shadow:0 -2px 4px #555;position:relative; }
+	#title { text-align:center;color:#D34836;font:normal 1.3em/1.6 helvetica;margin:0.5em 0;padding:0;}
+	#info {text-align:center;color:#555;font:normal 1em/1.6 helvetica;margin:0.5em 0;padding:0;}
+	#copy {text-align:center;color:#bbb;width:100%;position:absolute;bottom:5px;font:normal 0.75em/1.4 helvetica;}
+  </style>
+  <script>
+
+//document.write(navigator.userAgent);
+
+function id(_id){
+	return document.getElementById(_id);
+}
+
+function timeLeft(sec){
+	var h = Math.floor(sec/3600);
+	var m = Math.floor(sec/60);
+	var s = Math.floor(sec - m*60);
+	return m+':'+s;
+}
+
+function init(){
+	//setTimeout(scrollTo,0,0,0);
+
+	fm = id("fmsrc");
+	var fm_loaded = false;
+	var fm_playing = false;
+	var fm_time = 0;
+
+	if (/(Android)/i.test(navigator.userAgent)) {
+		fm.src = "111201_gohome.ogg";
+	}
+
+	fm_play = function(){
+		if (fm_playing) {
+			fm.pause();
+			fm_playing = false;
+			//$("#button").css("background-image", "url('ico_play.png')");
+			$("#button").html('Play');
+			$('#playinfo').html('');
+		}
+		else {
+		    fm.play();
+			fm_playing = true;
+			//$("#button").css("background-image", "url('ico_pause.png')");
+			$("#button").html('||');
+		}
+	}
+
+	var bind = function(evt, fn){
+		fm.addEventListener(evt, fn, false);
+	}
+
+	bind('loadstart', function(){
+		console.debug('load start');
+		//alert('loadstart');
+	});
+	
+	bind('progress', function(e){
+		//console.debug(e);
+		var buffered = fm.buffered.end(0);
+
+		$("#buffered").css('width', (100*buffered/fm.duration).toFixed(2) + "%");
+
+	});
+
+	bind('error', function(e){
+		console.debug(e);
+		$('#playinfo').html('error.');
+	});
+
+	bind('abort', function(e){
+		console.debug('abort');
+		//fm.load();
+		//alert('abort');
+		//$('#playinfo').html('abort.');
+	});
+
+	bind('waiting', function(e){
+		console.debug('waiting');
+		$('#playinfo').html('waiting...');
+	});
+
+	bind('play', function(){
+		$('#playinfo').html('playing...');
+	});
+
+	bind('canplay', function(){
+		fm.play();
+		console.debug('canplay!');
+		fm_playing = true;
+	});
+
+	bind('canplaythrough', function(){
+		console.debug('load complete!');
+		fm_loaded = true;
+	});
+
+	bind('stalled', function(){
+
+		console.debug('stalled');
+		//$('#playinfo').html('stalled');
+
+		if (!fm_playing&&!fm_loaded) {
+			fm.load();
+		}
+	});
+
+	bind('suspend', function(){
+		console.debug('suspend');
+		//alert('suspend');
+	});
+
+	bind('loadedmetadata', function(){
+		console.debug('loadedmetadata');
+	});
+
+	bind('loadeddata', function(){
+		console.debug('loadeddata');
+	});
+	
+	bind('timeupdate', function(){
+
+		var buffered = fm.buffered.end(0);
+		var played = fm.currentTime;
+
+		if (buffered - played < 3 && fm_playing){
+			$('#playinfo').html('buffering...');
+
+		}
+		else {
+			$('#playinfo').html('- '+timeLeft(fm.duration - played));
+		}
+		
+		$("#played").css('width', (100*played/fm.duration).toFixed(2)+'%');
+		
+		fm_time = fm.currentTime;
+	});
+
+	bind('ended', function(){
+		fm_playing = false;
+		$("#button").html("Play");
+		fm.currentTime = 0;
+		fm.stop();
+		$('#playinfo').html('');
+	});
+
+	bind('durationchange', function(){
+		var buffered = fm.buffered.end(0);
+		$("#buffered").css('width', (100*fm.buffered/fm.duration).toFixed(2)+'%');
+	});
+
+	// http://bcs.duapp.com/yueduu/22f0f2f7a9952b0f3e812f3409f97129.mp3
+
+}
+  </script>
+</head>
+<body onload="init()">
+<div id="banner">
+	<span id="logo">FM 46.26</span>
+	<div id="cpanel">
+		<div id="playinfo"></div>
+		<a id="button" onclick="fm_play()">Play</a>
+	</div>
+	<div id="progress">
+		<div id="played"></div>
+		<div id="buffered"></div>
+	</div>
+</div>
+<div id="main">
+	<h1 id="title">回家</h1>
+	<p id="info">文：王文华  主播：阿荼</p>
+	<audio id="fmsrc"  src="111201_gohome.mp3">浏览器不支持Audio标签，无法收听</audio>
+	<div id="copy">&copy; TVRCGO</div>
+</div>
+</body>
+</html>

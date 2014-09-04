@@ -1,0 +1,85 @@
+body {
+  margin:0px;
+}
+div#content {
+  font: 12px Arial;
+}
+div#insert {
+  display: none;
+}
+
+div.1st {
+
+}
+div.Nth {
+
+}
+
+div.chat {
+background:#F5F5F5;
+padding:3px;
+border-left:5px solid #ddd;
+}
+
+div.chat .icon {
+display:none;
+}
+
+div.chat div.msg {
+font:normal 10pt Î¢ÈíÑÅºÚ,tohama,ËÎÌå;
+line-height:1.6em;
+padding-left:0.5em;
+}
+
+div.chat .detail{
+
+}
+
+div.chat div.Nth {
+
+}
+
+div.chat .salutation {
+font-weight: bold;
+margin-left:-0.5em;
+}
+
+div.out {
+  text-align: left;
+  margin-top:0.3em;
+  border-left:5px solid #92B3E8;
+}
+div.out .icon {
+  float: left;
+  margin: 2px 0px 0px 0px;
+}
+
+div.out .salutation{
+color:#05c;
+}
+
+DIV.in {
+  text-align: left;
+  margin-top:0.3em;
+}
+DIV.in .icon {
+  float: left;
+  margin: 2px 0px 0px 0px;
+}
+
+DIV.clear {
+  clear: both;
+  height: 1px;
+  overflow: hidden;
+}
+
+DIV.break {
+  height: 1px;
+  margin: 1px 0px 1px 0px;
+  overflow: hidden;
+}
+
+div.status {
+	line-height:1.6em;
+	padding:2px 5px;
+}

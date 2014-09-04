@@ -1,0 +1,110 @@
+BODY {
+  margin: 2px 0;
+}
+DIV#content {
+  font: 12px Arial;
+}
+DIV#insert {
+  display: none;
+}
+
+DIV.1st {
+  /*margin: 4px 0px;*/
+}
+DIV.Nth {
+  /*margin: 4px 0px 4px 0px;*/
+}
+
+/* Two ways to do icons with these rules:
+   <img class='icon' src='%userIconPath%'>
+   <div class='icon'><div style='height:1px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="%userIconPath%")'></div></div>
+*/
+DIV.chat {
+	background:#F7F7F7;
+	padding:5px;
+	margin-top:0.5em;
+	border-left:5px solid #ccc;
+}
+DIV.chat .icon {
+	float:right;
+	border:1px solid #eee;
+	margin: 0 0 3px 1px;
+}
+div.chat .salutation {
+	display: block;
+	font:bold 1em Arial,Verdana;
+	padding-bottom: 5px;
+	margin: 0;
+	vertical-align: -1px;
+}
+div.chat .time {
+	font:normal 8pt verdana,tohama;
+}
+div.chat .msg {
+	line-height:1.6em;
+}
+div.chat .msg li {
+	list-style: square;
+	vertical-align: -1px;
+}
+div.chat .detail{
+	display:block;
+	font:normal 1.12em tohama,verdana;
+	line-height:1.6em;
+}
+DIV.chat DIV.Nth {
+
+}
+
+/* out message style */
+
+DIV.out {
+  text-align: left;
+  border-left:5px solid #92B3E8;
+}
+DIV.out .icon {
+  margin: 2px 0px 2px 2px;
+}
+div.out .msg li {
+	color: #05c;
+}
+DIV.out .detail{
+	color: #222;
+}
+div.out .salutation { 
+	color:#05c;
+}
+
+
+DIV.in {
+  text-align: left;
+  border-left:5px solid #ddd;
+}
+DIV.in .icon {
+  margin: 2px 0px 2px 2px;
+}
+div.in .msg li {
+	color: #149A02;
+}
+div.in .msg .detail {
+	color: #222;
+}
+div.in .salutation {
+	color: #149A02;
+}
+
+DIV.clear {
+  clear: both;
+  height: 1px;
+  overflow: hidden;
+}
+
+DIV.break {
+  height: 1px;
+  overflow: hidden;
+}
+
+div.status {
+	line-height:1.6em;
+	padding:2px 5px;
+}

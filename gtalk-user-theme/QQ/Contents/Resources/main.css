@@ -1,0 +1,88 @@
+BODY {
+  margin: 0px;
+}
+DIV#content {
+  font: 12px Arial;
+}
+DIV#insert {
+  display: none;
+}
+
+DIV.1st {
+  /*margin: 4px 0px;*/
+  margin-left:1em;
+}
+DIV.Nth {
+  /*margin: 4px 0px 4px 0px;*/
+  margin-left:1em;
+}
+
+/* Two ways to do icons with these rules:
+   <img class='icon' src='%userIconPath%'>
+   <div class='icon'><div style='height:1px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="%userIconPath%")'></div></div>
+*/
+DIV.chat {
+	background:#F5F5F5;
+	padding:5px;
+	border-left:5px solid #ddd;
+}
+DIV.chat .icon {
+display:none;
+}
+DIV.chat DIV.msg {
+  /*margin: 0px 0px 0px 0px;*/
+	font:normal 10pt Î¢ÈíÑÅºÚ,tohama,ËÎÌå;
+	line-height:1.4em;
+}
+div.chat .detail{
+	display:block;
+}
+DIV.chat DIV.Nth {
+  /*margin: 5px 0px 0px 0px;*/
+  margin-left:1em;
+}
+DIV.chat .salutation {
+  font-weight: bold;
+display:block;
+margin-left:-1em;
+}
+
+DIV.out {
+  text-align: left;
+  margin-top:0.3em;
+  border-left:5px solid #92B3E8;
+}
+DIV.out .icon {
+  float: left;
+  margin: 2px 0px 0px 0px;
+}
+
+DIV.out .salutation{
+	color:#05c;
+}
+
+DIV.in {
+  text-align: left;
+  margin-top:0.3em;
+}
+DIV.in .icon {
+  float: left;
+  margin: 2px 0px 0px 0px;
+}
+
+DIV.clear {
+  clear: both;
+  height: 1px;
+  overflow: hidden;
+}
+
+DIV.break {
+  height: 1px;
+  margin: 1px 0px 1px 0px;
+  overflow: hidden;
+}
+
+div.status {
+	line-height:1.6em;
+	padding:2px 5px;
+}
