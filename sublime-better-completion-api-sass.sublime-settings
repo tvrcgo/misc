@@ -1,0 +1,17 @@
+{
+	"scope": "source.scss, source.sass",
+	"completions":
+	[
+		[ "include\tSASS", "@include $1();" ],
+		[ "extend\tSASS", "@extend $1;" ],
+		[ "mixin\tSASS", "@mixin $1(){\n\t\n}" ],
+		[ "import\tSASS", "@import \"$1\";" ],
+		[ "function\tSASS", "@function $1(){\n\t@return ;\n}" ],
+
+		[ "if\tSASS", "@if $1 { }" ],
+		[ "ifelse\tSASS", "@if $1 {\n\t\n} @else {\n\t\n}" ],
+		[ "while\tSASS", "@while $1 {\n\t\n}" ],
+		[ "for\tSASS", "@for $1 from 1 to 5 {\n\t\n}" ],
+		[ "each\tSASS", "@each $1 in a,b,c {\n\t\n}" ],
+	]
+}
