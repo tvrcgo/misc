@@ -1,6 +1,5 @@
 # Gypsophila
 
-满天星
 since 2012.3
 
 - dijkstra.js
@@ -12,3 +11,12 @@ since 2012.3
 
 - mapmanager.js
   Google Map API Instance
+
+- fm 46.26
+  HTML5 Audio instance 
+
+- gtalk-user-theme
+  Google Talk themes
+
+- sublime-better-completion-api-sass.sublime-settings
+  Better Completion for SASS
