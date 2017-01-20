@@ -28,14 +28,14 @@ dmk() {
 }
 
 drmi() {
-  docker rmi $(docker images -a | grep "$1" | awk '{ print $3 }') 2 > /dev/null
+  docker rmi $(docker images -a | grep "$1" | awk '{ print $3 }') 2>/dev/null
 }
 
 drm() {
-  docker rm $(docker ps -a | grep "$1" | awk '{ print $1 }') 2 > /dev/null
+  docker rm $(docker ps -a | grep "$1" | awk '{ print $1 }') 2>/dev/null
 }
 
 drma() {
-  docker rm -v $(docker ps -q --filter status=exited) 2 > /dev/null
-  docker rmi $(docker images --filter dangling=true -q) 2 > /dev/null
+  docker rm -v $(docker ps -q --filter status=exited) 2>/dev/null
+  docker rmi $(docker images --filter dangling=true -q) 2>/dev/null
 }
