@@ -27,6 +27,10 @@ dmk() {
   docker build --rm -t="$1" .
 }
 
+dcps() {
+  docker-compose up --build -d
+}
+
 drmi() {
   docker rmi $(docker images -a | grep "$1" | awk '{ print $3 }') 2>/dev/null
 }
