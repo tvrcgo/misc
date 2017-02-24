@@ -1,4 +1,4 @@
-# Gypsophila
+# Misc
 
 since 2012.3
 
@@ -20,3 +20,6 @@ since 2012.3
 
 - **sublime-better-completion-api-sass.sublime-settings**
   Better Completion for SASS
+
+- **docker alias**
+  docker commands alias
